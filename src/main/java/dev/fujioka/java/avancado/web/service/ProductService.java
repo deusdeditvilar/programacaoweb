@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,4 +47,17 @@ public class ProductService
     public long count() {
         return productRepository.count();
     }
+
+    public List<Product> listProductsByName(String name) { return productRepository.findProductByName(name); }
+
+    public List<Product> getListById(Long id){ return productRepository.findProductById(id); }
+
+    public List<Product> getProductByDescription(String description) {
+        return productRepository.findProductByDescription(description);
+    }
+
+    public List<Product> getProductByNameAndDescription(String name, String description) {
+        return productRepository.findProductByNameAndDescription(name, description);
+    }
+
 }
